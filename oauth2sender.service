@@ -1,0 +1,15 @@
+[Unit]
+Description=Sendmail via google Oauth2
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=oauth2sender
+EnvironmentFile=/etc/default/oauth2sender
+ExecStart=/usr/local/bin/oauth2sender.py --clientid $GOOGLE_CLIENT_ID --clientsecret $GOOGLE_CLIENT_SECRET --refreshtoken $GOOGLE_REFRESH_TOKEN
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
