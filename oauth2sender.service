@@ -1,5 +1,5 @@
 [Unit]
-Description=Sendmail via google Oauth2
+Description=Sendmail by google Oauth2
 After=syslog.target network-online.target
 
 [Service]
